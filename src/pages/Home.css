@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+}
+
+.home {
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+
+/* HERO */
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  background: #f5eadc;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.cafe-name {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  margin: 20px 0;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.hero-buttons button,
+.cta button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.hero-buttons button:first-child {
+  background: #6f4e37;
+  color: white;
+}
+
+.hero-buttons button:last-child {
+  background: white;
+  color: #6f4e37;
+  border: 2px solid #6f4e37;
+}
+
+
+/* FEATURED ITEMS */
+
+.featured {
+  padding: 80px 30px;
+  text-align: center;
+}
+
+.featured h2,
+.why-us h2,
+.reviews h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.section-description {
+  margin-bottom: 45px;
+}
+
+.featured-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.food-card {
+  width: 31%;
+  padding: 25px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.food-image {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  background: #f5eadc;
+  border-radius: 10px;
+}
+
+.food-card h3 {
+  font-size: 23px;
+}
+
+.food-card p {
+  line-height: 1.6;
+}
+
+.food-card span {
+  font-size: 21px;
+  font-weight: bold;
+  color: #6f4e37;
+}
+
+
+/* WHY CHOOSE US */
+
+.why-us {
+  padding: 80px 30px;
+  text-align: center;
+  background: #f9f6f2;
+}
+
+.why-container {
+  max-width: 1000px;
+  margin: 45px auto 0;
+  display: flex;
+  gap: 30px;
+}
+
+.why-card {
+  flex: 1;
+  padding: 30px;
+}
+
+.why-icon {
+  font-size: 50px;
+}
+
+.why-card h3 {
+  font-size: 22px;
+}
+
+.why-card p {
+  line-height: 1.6;
+}
+
+
+/* REVIEWS */
+
+.reviews {
+  padding: 80px 30px;
+  text-align: center;
+}
+
+.review-container {
+  max-width: 1050px;
+  margin: 45px auto 0;
+  display: flex;
+  gap: 25px;
+}
+
+.review-card {
+  flex: 1;
+  padding: 30px;
+  border-radius: 12px;
+  background: #f9f6f2;
+}
+
+.stars {
+  font-size: 20px;
+}
+
+.review-card p {
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.review-card h3 {
+  font-size: 17px;
+}
+
+
+/* CTA */
+
+.cta {
+  padding: 90px 30px;
+  text-align: center;
+  background: #6f4e37;
+  color: white;
+}
+
+.cta h2 {
+  font-size: 42px;
+}
+
+.cta p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.cta button {
+  background: white;
+  color: #6f4e37;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featured-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .food-card {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .why-container {
+    flex-direction: column;
+  }
+
+  .review-container {
+    flex-direction: column;
+  }
+
+  .cta h2 {
+    font-size: 34px;
+  }
+}
