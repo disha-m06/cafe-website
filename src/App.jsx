@@ -3,6 +3,10 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import AdminDashboard from "./Pages/AdminDashboard";
+
 import { useCart } from "./context/CartContext";
 
 
@@ -327,28 +331,37 @@ function App() {
 
       <Routes>
 
-        {/* HOME */}
+  <Route
+    path="/"
+    element={<Home />}
+  />
 
-        <Route
-          path="/"
-          element={<Home />}
-        />
+  <Route
+    path="/login"
+    element={<Login />}
+  />
 
-        {/* CART */}
+  <Route
+    path="/register"
+    element={<Register />}
+  />
 
-        <Route
-          path="/cart"
-          element={<Cart />}
-        />
+  <Route
+    path="/admin"
+    element={<AdminDashboard />}
+  />
 
-        {/* CHECKOUT */}
+  <Route
+    path="/cart"
+    element={<Cart />}
+  />
 
-        <Route
-          path="/checkout"
-          element={<Checkout />}
-        />
+  <Route
+    path="/checkout"
+    element={<Checkout />}
+  />
 
-      </Routes>
+</Routes>
 
     </BrowserRouter>
   );
