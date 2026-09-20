@@ -1,6 +1,10 @@
+import "./App.css"; 
+import Menu from "./components/Menu";
+
 function App() {
   return (
     <div>
+      {/* NAVBAR */}
       <nav className="navbar">
         <div className="logo">☕ Brew & Bean</div>
 
@@ -15,6 +19,7 @@ function App() {
         <button className="order-btn">Order Now</button>
       </nav>
 
+      {/* HOME / HERO */}
       <section className="hero" id="home">
         <div className="hero-content">
           <p className="small-title">WELCOME TO BREW & BEAN</p>
@@ -31,43 +36,32 @@ function App() {
           </p>
 
           <div className="hero-buttons">
-            <button className="primary-btn">View Menu</button>
-            <button className="secondary-btn">Explore Café</button>
+            <button
+              className="primary-button"
+              onClick={() =>
+                document
+                  .getElementById("menu")
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              View Menu
+            </button>
+
+            <button className="secondary-btn">
+              Explore Café
+            </button>
           </div>
         </div>
       </section>
 
-      <section className="menu-section" id="menu">
-        <p className="section-subtitle">OUR FAVORITES</p>
-        <h2>Popular Picks</h2>
+      {/* MENU */}
+      <Menu />
 
-        <div className="menu-container">
-          <div className="menu-card">
-            <div className="food-icon">☕</div>
-            <h3>Cappuccino</h3>
-            <p>Rich espresso with creamy steamed milk.</p>
-            <strong>₹140</strong>
-          </div>
-
-          <div className="menu-card">
-            <div className="food-icon">🥐</div>
-            <h3>Butter Croissant</h3>
-            <p>Freshly baked, crispy and buttery.</p>
-            <strong>₹120</strong>
-          </div>
-
-          <div className="menu-card">
-            <div className="food-icon">🍰</div>
-            <h3>Cheesecake</h3>
-            <p>Classic creamy cheesecake with a soft crust.</p>
-            <strong>₹180</strong>
-          </div>
-        </div>
-      </section>
-
+      {/* ABOUT */}
       <section className="about-section" id="about">
         <div>
           <p className="section-subtitle">OUR STORY</p>
+
           <h2>More Than Just Coffee</h2>
 
           <p>
@@ -80,12 +74,28 @@ function App() {
             and every dish is made with care.
           </p>
 
-          <button className="primary-btn">Learn More</button>
+          <button className="primary-btn">
+            Learn More
+          </button>
         </div>
       </section>
 
+      {/* GALLERY */}
+      <section className="gallery-section" id="gallery">
+        <p className="section-subtitle">OUR SPACE</p>
+
+        <h2>Relax. Sip. Enjoy.</h2>
+
+        <p>
+          A warm and cozy space made for coffee, conversations and
+          memorable moments.
+        </p>
+      </section>
+
+      {/* CONTACT */}
       <section className="contact-section" id="contact">
         <p className="section-subtitle">COME VISIT US</p>
+
         <h2>Let's Have Coffee</h2>
 
         <p>📍 Bengaluru, Karnataka</p>
@@ -94,9 +104,12 @@ function App() {
         <p>🕐 Mon - Sun: 8:00 AM - 10:00 PM</p>
       </section>
 
+      {/* FOOTER */}
       <footer>
         <h3>☕ Brew & Bean</h3>
+
         <p>Fresh coffee. Good moments.</p>
+
         <p>© 2026 Brew & Bean. All rights reserved.</p>
       </footer>
     </div>
