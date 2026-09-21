@@ -16,6 +16,7 @@ import AdminDashboard from "./Pages/AdminDashboard";
 
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
 
 import { useCart } from "./context/CartContext";
 
@@ -26,28 +27,55 @@ function Home() {
   return (
     <div>
 
-      {/* NAVBAR */}
+      {/* ================= NAVBAR ================= */}
+
       <nav className="navbar">
+
         <div className="logo">
           ☕ Brew & Bean
         </div>
 
         <div className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#menu">Menu</a>
-          <Link to="/about">About</Link>
-          <Link to="/gallery">Gallery</Link>
-          <a href="#contact">Contact</a>
+
+          <a href="#home">
+            Home
+          </a>
+
+          <a href="#menu">
+            Menu
+          </a>
+
+          <Link to="/about">
+            About
+          </Link>
+
+          <Link to="/gallery">
+            Gallery
+          </Link>
+
+          <Link to="/contact">
+            Contact
+          </Link>
+
         </div>
 
-        <Link to="/cart" className="order-btn">
+        <Link
+          to="/cart"
+          className="order-btn"
+        >
           🛒 Cart ({getCartCount()})
         </Link>
+
       </nav>
 
 
-      {/* HERO */}
-      <section className="hero" id="home">
+      {/* ================= HERO ================= */}
+
+      <section
+        className="hero"
+        id="home"
+      >
+
         <div className="hero-content">
 
           <p className="small-title">
@@ -61,8 +89,8 @@ function Home() {
           </h1>
 
           <p>
-            Your cozy corner for handcrafted coffee, delicious food
-            and unforgettable moments.
+            Your cozy corner for handcrafted coffee,
+            delicious food and unforgettable moments.
           </p>
 
           <div className="hero-buttons">
@@ -82,11 +110,16 @@ function Home() {
           </div>
 
         </div>
+
       </section>
 
 
-      {/* MENU */}
-      <section className="menu-section" id="menu">
+      {/* ================= MENU ================= */}
+
+      <section
+        className="menu-section"
+        id="menu"
+      >
 
         <p className="section-subtitle">
           OUR FAVORITES
@@ -98,7 +131,9 @@ function Home() {
 
         <div className="menu-container">
 
+
           {/* CAPPUCCINO */}
+
           <div className="menu-card">
 
             <div className="food-icon">
@@ -134,7 +169,8 @@ function Home() {
           </div>
 
 
-          {/* CROISSANT */}
+          {/* BUTTER CROISSANT */}
+
           <div className="menu-card">
 
             <div className="food-icon">
@@ -171,6 +207,7 @@ function Home() {
 
 
           {/* CHEESECAKE */}
+
           <div className="menu-card">
 
             <div className="food-icon">
@@ -206,11 +243,16 @@ function Home() {
           </div>
 
         </div>
+
       </section>
 
 
-      {/* ABOUT PREVIEW */}
-      <section className="about-section" id="about">
+      {/* ================= ABOUT PREVIEW ================= */}
+
+      <section
+        className="about-section"
+        id="about"
+      >
 
         <div>
 
@@ -223,13 +265,14 @@ function Home() {
           </h2>
 
           <p>
-            Brew & Bean is a cozy café created for people who love
-            good coffee, delicious food and great conversations.
+            Brew & Bean is a cozy café created for people
+            who love good coffee, delicious food and
+            great conversations.
           </p>
 
           <p>
-            Every cup is carefully prepared using freshly roasted beans
-            and every dish is made with care.
+            Every cup is carefully prepared using freshly
+            roasted beans and every dish is made with care.
           </p>
 
           <Link to="/about">
@@ -243,8 +286,12 @@ function Home() {
       </section>
 
 
-      {/* CONTACT */}
-      <section className="contact-section" id="contact">
+      {/* ================= CONTACT PREVIEW ================= */}
+
+      <section
+        className="contact-section"
+        id="contact"
+      >
 
         <p className="section-subtitle">
           COME VISIT US
@@ -270,10 +317,17 @@ function Home() {
           🕐 Mon - Sun: 8:00 AM - 10:00 PM
         </p>
 
+        <Link to="/contact">
+          <button className="primary-btn">
+            Contact & Reserve
+          </button>
+        </Link>
+
       </section>
 
 
-      {/* FOOTER */}
+      {/* ================= FOOTER ================= */}
+
       <footer>
 
         <h3>
@@ -295,55 +349,82 @@ function Home() {
 }
 
 
+/* ================= MAIN APP ================= */
+
 function App() {
+
   return (
+
     <BrowserRouter>
 
       <Routes>
 
         {/* HOME */}
+
         <Route
           path="/"
           element={<Home />}
         />
 
+
         {/* ABOUT */}
+
         <Route
           path="/about"
           element={<About />}
         />
 
+
         {/* GALLERY */}
+
         <Route
           path="/gallery"
           element={<Gallery />}
         />
 
+
+        {/* CONTACT + RESERVATION */}
+
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
+
+
         {/* CART */}
+
         <Route
           path="/cart"
           element={<Cart />}
         />
 
+
         {/* CHECKOUT */}
+
         <Route
           path="/checkout"
           element={<Checkout />}
         />
 
+
         {/* LOGIN */}
+
         <Route
           path="/login"
           element={<Login />}
         />
 
+
         {/* REGISTER */}
+
         <Route
           path="/register"
           element={<Register />}
         />
 
+
         {/* ADMIN */}
+
         <Route
           path="/admin"
           element={<AdminDashboard />}
@@ -352,7 +433,9 @@ function App() {
       </Routes>
 
     </BrowserRouter>
+
   );
 }
+
 
 export default App;
