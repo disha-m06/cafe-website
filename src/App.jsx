@@ -10,10 +10,7 @@ import AdminDashboard from "./Pages/AdminDashboard";
 import { useCart } from "./context/CartContext";
 
 
-/* ================= HOME PAGE ================= */
-
 function Home() {
-
   const { addToCart, getCartCount } = useCart();
 
   return (
@@ -28,35 +25,20 @@ function Home() {
         </div>
 
         <div className="nav-links">
-
-          <a href="#home">
-            Home
-          </a>
-
-          <a href="#menu">
-            Menu
-          </a>
-
-          <a href="#about">
-            About
-          </a>
-
-          <a href="#gallery">
-            Gallery
-          </a>
-
-          <a href="#contact">
-            Contact
-          </a>
-
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
         </div>
 
-        {/* CART BUTTON */}
+        <div className="auth-links">
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/admin">Admin</Link>
+        </div>
 
-        <Link
-          to="/cart"
-          className="order-btn"
-        >
+        <Link to="/cart" className="order-btn">
           🛒 Cart ({getCartCount()})
         </Link>
 
@@ -119,8 +101,7 @@ function Home() {
 
         <div className="menu-container">
 
-
-          {/* ================= CAPPUCCINO ================= */}
+          {/* CAPPUCCINO */}
 
           <div className="menu-card">
 
@@ -157,7 +138,7 @@ function Home() {
           </div>
 
 
-          {/* ================= CROISSANT ================= */}
+          {/* CROISSANT */}
 
           <div className="menu-card">
 
@@ -194,7 +175,7 @@ function Home() {
           </div>
 
 
-          {/* ================= CHEESECAKE ================= */}
+          {/* CHEESECAKE */}
 
           <div className="menu-card">
 
@@ -268,6 +249,37 @@ function Home() {
       </section>
 
 
+      {/* ================= GALLERY ================= */}
+
+      <section className="gallery-section" id="gallery">
+
+        <p className="section-subtitle">
+          OUR CAFE
+        </p>
+
+        <h2>
+          Beautiful Moments
+        </h2>
+
+        <div className="gallery-container">
+
+          <div className="gallery-card">
+            ☕
+          </div>
+
+          <div className="gallery-card">
+            🍰
+          </div>
+
+          <div className="gallery-card">
+            🥐
+          </div>
+
+        </div>
+
+      </section>
+
+
       {/* ================= CONTACT ================= */}
 
       <section className="contact-section" id="contact">
@@ -331,37 +343,37 @@ function App() {
 
       <Routes>
 
-  <Route
-    path="/"
-    element={<Home />}
-  />
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-  <Route
-    path="/login"
-    element={<Login />}
-  />
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
-  <Route
-    path="/register"
-    element={<Register />}
-  />
+        <Route
+          path="/register"
+          element={<Register />}
+        />
 
-  <Route
-    path="/admin"
-    element={<AdminDashboard />}
-  />
+        <Route
+          path="/admin"
+          element={<AdminDashboard />}
+        />
 
-  <Route
-    path="/cart"
-    element={<Cart />}
-  />
+        <Route
+          path="/cart"
+          element={<Cart />}
+        />
 
-  <Route
-    path="/checkout"
-    element={<Checkout />}
-  />
+        <Route
+          path="/checkout"
+          element={<Checkout />}
+        />
 
-</Routes>
+      </Routes>
 
     </BrowserRouter>
   );
