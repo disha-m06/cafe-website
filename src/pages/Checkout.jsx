@@ -3,7 +3,6 @@ import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
-
   const {
     cart,
     getTotal,
@@ -21,6 +20,8 @@ const Checkout = () => {
   });
 
   const [orderPlaced, setOrderPlaced] = useState(false);
+  const [orderId, setOrderId] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -31,8 +32,7 @@ const Checkout = () => {
     });
   };
 
-  const handleSubmit = (event) => {
-
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (cart.length === 0) {
@@ -40,15 +40,47 @@ const Checkout = () => {
       return;
     }
 
-    console.log("Order Details:", {
-      customer: formData,
-      items: cart,
-      total: getTotal() + 40,
-    });
+    setLoading(true);
 
-    setOrderPlaced(true);
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            customerName: formData.name,
+            phone: formData.phone,
+            items: cart,
+            totalAmount: getTotal() + 40,
+          }),
+        }
+      );
 
-    clearCart();
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Order failed");
+      }
+
+      console.log("Order saved:", data.order);
+
+      setOrderId(data.order.id);
+      setOrderPlaced(true);
+
+      clearCart();
+
+    } catch (error) {
+      console.error("Order error:", error);
+
+      alert(
+        "Unable to place order. Please make sure the backend is running."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (orderPlaced) {
@@ -65,12 +97,16 @@ const Checkout = () => {
           Your order has been received.
         </p>
 
-       <button
-       className="primary-button"
-       onClick={() => navigate("/")}
-    >
-       Continue Shopping
-    </button>
+        <p>
+          <strong>Order ID: {orderId}</strong>
+        </p>
+
+        <button
+          className="primary-button"
+          onClick={() => navigate("/")}
+        >
+          Continue Shopping
+        </button>
 
       </div>
     );
@@ -167,8 +203,9 @@ const Checkout = () => {
           <button
             type="submit"
             className="place-order-button"
+            disabled={loading}
           >
-            Place Order
+            {loading ? "Placing Order..." : "Place Order"}
           </button>
 
         </form>

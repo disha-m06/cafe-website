@@ -44,4 +44,22 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Get all reservations
+router.get("/", async (req, res) => {
+  try {
+    const result = await db.query(
+      "SELECT * FROM reservations ORDER BY id DESC"
+    );
+
+    res.json(result.rows);
+
+  } catch (error) {
+    console.error("Error fetching reservations:", error);
+
+    res.status(500).json({
+      message: "Failed to fetch reservations",
+    });
+  }
+});
+
 module.exports = router;
