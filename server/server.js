@@ -1,10 +1,13 @@
 const express = require("express");
+const cors = require("cors");
+
 
 const menuRoutes = require("./routes/menuRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const reservationRoutes = require("./routes/reservationRoutes");
 
 const app = express();
+app.use(cors());
 
 const PORT = 5000;
 

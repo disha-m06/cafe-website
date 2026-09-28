@@ -1,28 +1,23 @@
 const express = require("express");
-
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.json([
-        {
-            id: 1,
-            name: "Cappuccino",
-            price: 140,
-            category: "Coffee"
-        },
-        {
-            id: 2,
-            name: "Masala Tea",
-            price: 80,
-            category: "Tea"
-        },
-        {
-            id: 3,
-            name: "Cheesecake",
-            price: 180,
-            category: "Dessert"
-        }
-    ]);
+const db = require("../db");
+
+// Get all available menu items
+router.get("/", async (req, res) => {
+  try {
+    const result = await db.query(
+      "SELECT * FROM menu WHERE available = TRUE ORDER BY id"
+    );
+
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Error fetching menu:", error);
+
+    res.status(500).json({
+      message: "Failed to fetch menu",
+    });
+  }
 });
 
 module.exports = router;
