@@ -18,11 +18,17 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 
+import Menu from "./components/Menu";
+
 import { useCart } from "./context/CartContext";
 
 
+/* =========================================================
+   HOME PAGE
+========================================================= */
+
 function Home() {
-  const { addToCart, getCartCount } = useCart();
+  const { getCartCount } = useCart();
 
   return (
     <div>
@@ -114,137 +120,9 @@ function Home() {
       </section>
 
 
-      {/* ================= MENU ================= */}
+      {/* ================= FULL MENU ================= */}
 
-      <section
-        className="menu-section"
-        id="menu"
-      >
-
-        <p className="section-subtitle">
-          OUR FAVORITES
-        </p>
-
-        <h2>
-          Popular Picks
-        </h2>
-
-        <div className="menu-container">
-
-
-          {/* CAPPUCCINO */}
-
-          <div className="menu-card">
-
-            <div className="food-icon">
-              ☕
-            </div>
-
-            <h3>
-              Cappuccino
-            </h3>
-
-            <p>
-              Rich espresso with creamy steamed milk.
-            </p>
-
-            <strong>
-              ₹140
-            </strong>
-
-            <button
-              className="add-cart-btn"
-              onClick={() =>
-                addToCart({
-                  id: 1,
-                  name: "Cappuccino",
-                  price: 140,
-                  image: "☕",
-                })
-              }
-            >
-              Add to Cart
-            </button>
-
-          </div>
-
-
-          {/* BUTTER CROISSANT */}
-
-          <div className="menu-card">
-
-            <div className="food-icon">
-              🥐
-            </div>
-
-            <h3>
-              Butter Croissant
-            </h3>
-
-            <p>
-              Freshly baked, crispy and buttery.
-            </p>
-
-            <strong>
-              ₹120
-            </strong>
-
-            <button
-              className="add-cart-btn"
-              onClick={() =>
-                addToCart({
-                  id: 2,
-                  name: "Butter Croissant",
-                  price: 120,
-                  image: "🥐",
-                })
-              }
-            >
-              Add to Cart
-            </button>
-
-          </div>
-
-
-          {/* CHEESECAKE */}
-
-          <div className="menu-card">
-
-            <div className="food-icon">
-              🍰
-            </div>
-
-            <h3>
-              Cheesecake
-            </h3>
-
-            <p>
-              Classic creamy cheesecake with a soft crust.
-            </p>
-
-            <strong>
-              ₹180
-            </strong>
-
-            <button
-              className="add-cart-btn"
-              onClick={() =>
-                addToCart({
-                  id: 3,
-                  name: "Cheesecake",
-                  price: 180,
-                  image: "🍰",
-                })
-              }
-            >
-              Add to Cart
-            </button>
-
-          </div>
-
-        </div>
-
-      </section>
+      <Menu />
 
 
       {/* ================= ABOUT PREVIEW ================= */}
@@ -349,7 +227,9 @@ function Home() {
 }
 
 
-/* ================= MAIN APP ================= */
+/* =========================================================
+   MAIN APP
+========================================================= */
 
 function App() {
 
@@ -359,7 +239,7 @@ function App() {
 
       <Routes>
 
-        {/* HOME */}
+        {/* ================= HOME ================= */}
 
         <Route
           path="/"
@@ -367,7 +247,7 @@ function App() {
         />
 
 
-        {/* ABOUT */}
+        {/* ================= ABOUT ================= */}
 
         <Route
           path="/about"
@@ -375,7 +255,7 @@ function App() {
         />
 
 
-        {/* GALLERY */}
+        {/* ================= GALLERY ================= */}
 
         <Route
           path="/gallery"
@@ -383,7 +263,7 @@ function App() {
         />
 
 
-        {/* CONTACT + RESERVATION */}
+        {/* ================= CONTACT + RESERVATION ================= */}
 
         <Route
           path="/contact"
@@ -391,7 +271,7 @@ function App() {
         />
 
 
-        {/* CART */}
+        {/* ================= CART ================= */}
 
         <Route
           path="/cart"
@@ -399,7 +279,7 @@ function App() {
         />
 
 
-        {/* CHECKOUT */}
+        {/* ================= CHECKOUT ================= */}
 
         <Route
           path="/checkout"
@@ -407,7 +287,7 @@ function App() {
         />
 
 
-        {/* LOGIN */}
+        {/* ================= LOGIN ================= */}
 
         <Route
           path="/login"
@@ -415,7 +295,7 @@ function App() {
         />
 
 
-        {/* REGISTER */}
+        {/* ================= REGISTER ================= */}
 
         <Route
           path="/register"
@@ -423,7 +303,7 @@ function App() {
         />
 
 
-        {/* ADMIN */}
+        {/* ================= ADMIN ================= */}
 
         <Route
           path="/admin"

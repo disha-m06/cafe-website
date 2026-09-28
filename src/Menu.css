@@ -1,0 +1,230 @@
+/* =========================
+   MENU SECTION
+========================= */
+
+.menu-section {
+  padding: 100px 7%;
+  background:
+    radial-gradient(circle at top left, rgba(214, 164, 104, 0.15), transparent 30%),
+    linear-gradient(135deg, #fff8ef, #f8eee2);
+  color: #3b2418;
+}
+
+/* Heading */
+
+.menu-heading {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 45px;
+}
+
+.menu-heading p:first-child {
+  display: inline-block;
+  color: #a85d32;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.menu-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 44px;
+  color: #4a281a;
+  margin: 8px 0 15px;
+}
+
+.menu-heading p:last-child {
+  color: #80695c;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.category-buttons button {
+  padding: 11px 23px;
+  border: 1px solid #d5b79d;
+  background: rgba(255, 255, 255, 0.7);
+  color: #6b412d;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.category-buttons button:hover {
+  background: #ead0b6;
+  transform: translateY(-2px);
+}
+
+.category-buttons .active-category {
+  background: #7a452b;
+  color: white;
+  border-color: #7a452b;
+  box-shadow: 0 6px 18px rgba(122, 69, 43, 0.25);
+}
+
+/* =========================
+   MENU GRID
+========================= */
+
+.menu-grid {
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* =========================
+   MENU CARD
+========================= */
+
+.menu-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(130, 82, 52, 0.1);
+  box-shadow: 0 12px 35px rgba(83, 48, 29, 0.10);
+  transition: all 0.35s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(83, 48, 29, 0.18);
+}
+
+/* Image */
+
+.menu-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.menu-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Content */
+
+.menu-card-content {
+  padding: 22px;
+}
+
+.menu-category {
+  display: inline-block;
+  color: #b66a3c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.menu-card h3 {
+  font-family: Georgia, serif;
+  color: #452719;
+  font-size: 23px;
+  margin: 5px 0 9px;
+}
+
+.menu-card p {
+  color: #80695c;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 45px;
+  margin: 0;
+}
+
+/* =========================
+   PRICE + CART
+========================= */
+
+.menu-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 15px;
+  border-top: 1px solid #eee1d5;
+}
+
+.menu-price {
+  color: #6e3d25;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.add-cart-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background: #b86b3c;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-cart-button:hover {
+  background: #7a452b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(122, 69, 43, 0.25);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .menu-section {
+    padding: 70px 20px;
+  }
+
+  .menu-heading h2 {
+    font-size: 32px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-card img {
+    height: 230px;
+  }
+
+  .category-buttons {
+    gap: 8px;
+  }
+
+  .category-buttons button {
+    padding: 9px 16px;
+  }
+}
