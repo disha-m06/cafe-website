@@ -1,0 +1,162 @@
+/* ================================
+   LOGIN / REGISTER
+================================ */
+
+.auth-page {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: #f7f1e8;
+}
+
+/* AUTH CARD */
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background: #fffaf3;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(59, 41, 33, 0.12);
+  text-align: center;
+}
+
+/* ICON */
+
+.auth-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #ead8c5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+}
+
+/* HEADINGS */
+
+.auth-card h1 {
+  font-size: 32px;
+  color: #3b2921;
+  margin-bottom: 8px;
+}
+
+.auth-card > p {
+  color: #725f55;
+  margin-bottom: 30px;
+}
+
+/* FORM */
+
+.auth-card form {
+  text-align: left;
+}
+
+.auth-card label {
+  display: block;
+  margin-bottom: 7px;
+  color: #3b2921;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 13px 15px;
+  margin-bottom: 18px;
+  border: 1px solid #d8c7b8;
+  border-radius: 10px;
+  background: white;
+  color: #3b2921;
+  font-size: 15px;
+  outline: none;
+}
+
+.auth-card input:focus {
+  border-color: #9a6248;
+  box-shadow: 0 0 0 3px rgba(154, 98, 72, 0.12);
+}
+
+/* AUTH BUTTON */
+
+.auth-card form button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 25px;
+  background: #6f4434;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-card form button:hover {
+  background: #4f2f24;
+}
+
+/* ERROR */
+
+.error-message {
+  color: #b52d2d !important;
+  background: #fdeaea;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0 15px !important;
+  font-size: 14px;
+}
+
+/* BOTTOM TEXT */
+
+.auth-bottom {
+  margin-top: 25px !important;
+  margin-bottom: 15px !important;
+  color: #725f55;
+}
+
+.auth-bottom a {
+  color: #6f4434;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* BACK HOME */
+
+.back-home {
+  display: inline-block;
+  margin-top: 10px;
+  color: #9a6248;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-home:hover {
+  text-decoration: underline;
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+  .auth-page {
+    padding: 30px 15px;
+  }
+
+  .auth-card {
+    padding: 30px 22px;
+  }
+
+  .auth-card h1 {
+    font-size: 27px;
+  }
+
+}

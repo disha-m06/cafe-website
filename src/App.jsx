@@ -63,6 +63,14 @@ function Home() {
             Contact
           </Link>
 
+          <Link to="/login">
+            Login
+          </Link>
+
+          <Link to="/register">
+            Register
+          </Link>
+
         </div>
 
         <Link
@@ -192,35 +200,10 @@ function Home() {
         </p>
 
         <p>
-          🕐 Mon - Sun: 8:00 AM - 10:00 PM
+          🕐 Monday – Sunday: 8:00 AM – 10:00 PM
         </p>
-
-        <Link to="/contact">
-          <button className="primary-btn">
-            Contact & Reserve
-          </button>
-        </Link>
 
       </section>
-
-
-      {/* ================= FOOTER ================= */}
-
-      <footer>
-
-        <h3>
-          ☕ Brew & Bean
-        </h3>
-
-        <p>
-          Fresh coffee. Good moments.
-        </p>
-
-        <p>
-          © 2026 Brew & Bean. All rights reserved.
-        </p>
-
-      </footer>
 
     </div>
   );
@@ -228,13 +211,11 @@ function Home() {
 
 
 /* =========================================================
-   MAIN APP
+   APP
 ========================================================= */
 
 function App() {
-
   return (
-
     <BrowserRouter>
 
       <Routes>
@@ -263,7 +244,7 @@ function App() {
         />
 
 
-        {/* ================= CONTACT + RESERVATION ================= */}
+        {/* ================= CONTACT ================= */}
 
         <Route
           path="/contact"
@@ -313,7 +294,6 @@ function App() {
       </Routes>
 
     </BrowserRouter>
-
   );
 }
 

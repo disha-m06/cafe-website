@@ -1,16 +1,21 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./Auth.css";
 
 function Register() {
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+
+    setError("");
 
     if (!name || !email || !password || !confirmPassword) {
       setError("Please fill in all fields.");
@@ -32,13 +37,44 @@ function Register() {
       return;
     }
 
-    setError("");
-    alert("Account created successfully!");
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Registration failed");
+      }
+
+      alert("Account created successfully!");
+
+      navigate("/login");
+
+    } catch (error) {
+      console.error("Registration error:", error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="auth-page">
-
       <div className="auth-card">
 
         <div className="auth-icon">☕</div>
@@ -58,7 +94,6 @@ function Register() {
             onChange={(e) => setName(e.target.value)}
           />
 
-
           <label>Email</label>
 
           <input
@@ -68,7 +103,6 @@ function Register() {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-
           <label>Password</label>
 
           <input
@@ -77,7 +111,6 @@ function Register() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
 
           <label>Confirm Password</label>
 
@@ -96,12 +129,11 @@ function Register() {
             </p>
           )}
 
-          <button type="submit">
-            Create Account
+          <button type="submit" disabled={loading}>
+            {loading ? "Creating Account..." : "Create Account"}
           </button>
 
         </form>
-
 
         <p className="auth-bottom">
           Already have an account?{" "}
@@ -115,7 +147,6 @@ function Register() {
         </Link>
 
       </div>
-
     </div>
   );
 }

@@ -1,14 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./Auth.css";
 
 function Login() {
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
+    setError("");
 
     if (!email || !password) {
       setError("Please fill in all fields.");
@@ -20,18 +25,43 @@ function Login() {
       return;
     }
 
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters.");
-      return;
-    }
+    setLoading(true);
 
-    setError("");
-    alert("Login successful!");
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
+      alert(`Login successful! Welcome ${data.user.name}`);
+
+      navigate("/");
+
+    } catch (error) {
+      console.error("Login error:", error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="auth-page">
-
       <div className="auth-card">
 
         <div className="auth-icon">☕</div>
@@ -51,7 +81,6 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-
           <label>Password</label>
 
           <input
@@ -67,12 +96,11 @@ function Login() {
             </p>
           )}
 
-          <button type="submit">
-            Login
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
           </button>
 
         </form>
-
 
         <p className="auth-bottom">
           Don't have an account?{" "}
@@ -86,7 +114,6 @@ function Login() {
         </Link>
 
       </div>
-
     </div>
   );
 }
