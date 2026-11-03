@@ -1,0 +1,294 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f2ed;
+  color: #33251f;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* LOGIN */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #efe1d2, #f9f5ef);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(70, 45, 30, 0.12);
+}
+
+.brand-icon {
+  font-size: 42px;
+  text-align: center;
+}
+
+.login-card h1 {
+  text-align: center;
+  color: #5b3828;
+  margin-bottom: 8px;
+}
+
+.login-card > p {
+  text-align: center;
+  color: #8a7669;
+  margin-bottom: 28px;
+}
+
+.login-card label {
+  display: block;
+  margin: 16px 0 8px;
+  font-weight: 600;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd1c5;
+  border-radius: 8px;
+  outline: none;
+}
+
+.login-card input:focus {
+  border-color: #80563e;
+}
+
+.login-card button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #68432f;
+  color: white;
+  font-weight: bold;
+}
+
+.login-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* DASHBOARD */
+
+.admin-layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 245px;
+  min-height: 100vh;
+  padding: 28px 18px;
+  background: #4c3023;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  font-size: 21px;
+  margin: 0 0 35px;
+}
+
+.sidebar-label {
+  color: #c7aa95;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  margin: 0 0 15px 10px;
+}
+
+.nav-button,
+.nav-active {
+  width: 100%;
+  text-align: left;
+  padding: 14px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background: transparent;
+}
+
+.nav-button:hover,
+.nav-active {
+  background: #79543d;
+}
+
+.logout-button {
+  margin-top: auto;
+  padding: 13px;
+  border: 1px solid #b99a83;
+  border-radius: 8px;
+  color: white;
+  background: transparent;
+}
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+  padding: 35px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.topbar h1 {
+  margin: 0 0 8px;
+  color: #4c3023;
+  font-size: 30px;
+}
+
+.topbar p {
+  margin: 0;
+  color: #8a7669;
+}
+
+.refresh-button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #68432f;
+  color: white;
+}
+
+/* SUMMARY CARDS */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  padding: 25px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(70, 45, 30, 0.07);
+  border-left: 4px solid #9b7152;
+}
+
+.stat-card p {
+  margin: 0 0 15px;
+  color: #806b5d;
+}
+
+.stat-card h2 {
+  margin: 0;
+  color: #4c3023;
+  font-size: 32px;
+}
+
+/* TABLES */
+
+.table-card {
+  padding: 25px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(70, 45, 30, 0.07);
+}
+
+.table-card h2 {
+  margin: 0 0 22px;
+  color: #4c3023;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th {
+  padding: 14px;
+  background: #68432f;
+  color: white;
+  text-align: left;
+  font-size: 14px;
+}
+
+td {
+  padding: 14px;
+  border-bottom: 1px solid #eee5dc;
+  color: #55443a;
+}
+
+tbody tr:hover {
+  background: #faf6f1;
+}
+
+td select {
+  padding: 8px;
+  border: 1px solid #ddd1c5;
+  border-radius: 6px;
+  background: white;
+}
+
+/* MESSAGES */
+
+.error {
+  padding: 12px;
+  color: #a52828;
+  background: #fff0ef;
+  border-radius: 8px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+
+  .logout-button {
+    margin-top: 20px;
+  }
+
+  .admin-main {
+    padding: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
